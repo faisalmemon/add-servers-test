@@ -24,12 +24,21 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        viewModel.commenceAddServerWorkflow = {
+            self.gotoAddServerScreen()
+        }
     }
 
     @IBAction func addServerToClusterAction(_ sender: Any) {
         viewModel.addServerToClusterWasPressed()
     }
+    
+    func gotoAddServerScreen() {
+        performSegue(withIdentifier: "addServerSegue", sender: self)
+    }
+    
+    
+    
     
 }
 
