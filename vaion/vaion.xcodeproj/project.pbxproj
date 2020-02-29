@@ -99,6 +99,9 @@
 		39217A45240A7F2200ABC427 /* vaion */ = {
 			isa = PBXGroup;
 			children = (
+				39217A78240A97E300ABC427 /* ViewModel */,
+				39217A77240A97D000ABC427 /* View */,
+				39217A76240A97C400ABC427 /* Model */,
 				39217A46240A7F2200ABC427 /* AppDelegate.swift */,
 				39217A48240A7F2200ABC427 /* SceneDelegate.swift */,
 				39217A4A240A7F2200ABC427 /* ViewController.swift */,
@@ -126,6 +129,27 @@
 				39217A6A240A7F2600ABC427 /* Info.plist */,
 			);
 			path = vaionUITests;
+			sourceTree = "<group>";
+		};
+		39217A76240A97C400ABC427 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39217A77240A97D000ABC427 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39217A78240A97E300ABC427 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
