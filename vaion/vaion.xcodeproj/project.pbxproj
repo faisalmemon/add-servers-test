@@ -17,6 +17,8 @@
 		39217A69240A7F2600ABC427 /* vaionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A68240A7F2600ABC427 /* vaionUITests.swift */; };
 		39217A7A240A996F00ABC427 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A79240A996F00ABC427 /* Networking.swift */; };
 		396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */; };
+		396F805C240ABD170018FC96 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805B240ABD170018FC96 /* AddServerViewController.swift */; };
+		396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		39217A6A240A7F2600ABC427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39217A79240A996F00ABC427 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		396F805B240ABD170018FC96 /* AddServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewController.swift; sourceTree = "<group>"; };
+		396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 			children = (
 				39217A4A240A7F2200ABC427 /* WelcomeViewController.swift */,
 				39217A4C240A7F2200ABC427 /* Main.storyboard */,
+				396F805B240ABD170018FC96 /* AddServerViewController.swift */,
 				39217A4F240A7F2600ABC427 /* Assets.xcassets */,
 				39217A51240A7F2600ABC427 /* LaunchScreen.storyboard */,
 				39217A46240A7F2200ABC427 /* AppDelegate.swift */,
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */,
+				396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -292,8 +298,10 @@
 				39217A4B240A7F2200ABC427 /* WelcomeViewController.swift in Sources */,
 				396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */,
 				39217A47240A7F2200ABC427 /* AppDelegate.swift in Sources */,
+				396F805C240ABD170018FC96 /* AddServerViewController.swift in Sources */,
 				39217A49240A7F2200ABC427 /* SceneDelegate.swift in Sources */,
 				39217A7A240A996F00ABC427 /* Networking.swift in Sources */,
+				396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

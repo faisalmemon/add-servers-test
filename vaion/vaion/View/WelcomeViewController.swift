@@ -33,6 +33,8 @@ class WelcomeViewController: UIViewController {
         viewModel.addServerToClusterWasPressed()
     }
     
+    // MARK: Callback Handlers
+    
     func gotoAddServerScreen() {
         performSegue(withIdentifier: "addServerSegue", sender: self)
     }

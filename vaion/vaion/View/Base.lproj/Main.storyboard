@@ -52,16 +52,16 @@
             </objects>
             <point key="canvasLocation" x="317" y="143"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Server View Controller-->
         <scene sceneID="d9k-c8-Gbe">
             <objects>
-                <viewController id="dnZ-ng-p98" sceneMemberID="viewController">
+                <viewController id="dnZ-ng-p98" customClass="AddServerViewController" customModule="vaion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RdJ-Jv-3nC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wAx-xQ-6aV">
-                                <rect key="frame" x="10" y="10" width="394" height="249.5"/>
+                                <rect key="frame" x="10" y="10" width="394" height="261.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" text="Enter Server IP Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnD-pI-EeD">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="41"/>
@@ -72,14 +72,18 @@
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1.2.3.4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nqh-NC-xt8">
                                         <rect key="frame" x="0.0" y="81" width="394" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciz-g5-8a4">
-                                        <rect key="frame" x="0.0" y="159" width="394" height="30"/>
+                                        <rect key="frame" x="0.0" y="159" width="394" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextButtonWasPressedAction:" destination="dnZ-ng-p98" eventType="touchUpInside" id="XeI-rM-3Y0"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spacer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxL-Cm-zw5">
-                                        <rect key="frame" x="0.0" y="229" width="394" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="241" width="394" height="20.5"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
@@ -99,7 +103,9 @@
                         <viewLayoutGuide key="safeArea" id="DNb-mX-KSb"/>
                     </view>
                     <connections>
+                        <outlet property="ipAddressTextFieldOutlet" destination="nqh-NC-xt8" id="vno-rP-1s5"/>
                         <segue destination="9cD-Ln-EuY" kind="show" identifier="toServerCredentials" id="iDS-Ag-Nnu"/>
+                        <segue destination="cBc-pj-1SL" kind="show" identifier="toSuccessScreenFromAddServerScreen" id="Qt9-5V-cmc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kmc-s3-Dm4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -146,11 +152,12 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3u-WY-1mC">
-                                        <rect key="frame" x="0.0" y="250" width="394" height="30"/>
+                                        <rect key="frame" x="0.0" y="250" width="394" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Next"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spacer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9h-VK-9ZT">
-                                        <rect key="frame" x="0.0" y="300" width="394" height="498"/>
+                                        <rect key="frame" x="0.0" y="312" width="394" height="486"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
@@ -177,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhW-CS-ac8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1968" y="143"/>
+            <point key="canvasLocation" x="2019" y="602"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rgb-nM-hlg">
@@ -203,11 +210,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3n-pQ-T68">
-                                        <rect key="frame" x="0.0" y="163" width="394" height="30"/>
+                                        <rect key="frame" x="0.0" y="163" width="394" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="OK"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spacer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bdx-T0-1aP">
-                                        <rect key="frame" x="0.0" y="233" width="394" height="565"/>
+                                        <rect key="frame" x="0.0" y="245" width="394" height="553"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="NO"/>
                                         </accessibility>
@@ -231,7 +239,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2X-Zi-1XH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2852" y="143"/>
+            <point key="canvasLocation" x="2859" y="143"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ClB-4y-FvZ"/>
+    </inferredMetricsTieBreakers>
 </document>
