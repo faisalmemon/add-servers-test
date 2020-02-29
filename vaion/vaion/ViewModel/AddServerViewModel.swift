@@ -85,4 +85,8 @@ class AddServerViewModel {
             }
         }
     }
+    
+    func errorWasAcknowledged() {
+        
+    }
 }

@@ -36,6 +36,10 @@ class AddServerViewController: UIViewController {
         viewModel.gotoServerCredentialsScreen = {
             self.gotoAddCredentialsScreen()
         }
+        
+        viewModel.reportError = { (message) in
+            self.reportError(message: message)
+        }
     }
     
     @objc func textFieldDidChange() {
@@ -54,6 +58,16 @@ class AddServerViewController: UIViewController {
     
     func gotoSuccessScreen() {
         performSegue(withIdentifier: "toSuccessScreenFromAddServerScreen", sender: self)
+    }
+    
+    func reportError(message: String) {
+        presentAlert(withTitle: NSLocalizedString("Server Error", comment: ""), message: message, actions: [
+            NSLocalizedString("OK", comment: "") : .default], completionHandler: {(action) in
+
+                if action.title == NSLocalizedString("OK", comment: "") {
+                    self.viewModel.errorWasAcknowledged()
+                }
+        })
     }
     
     /*
