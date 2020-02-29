@@ -9,7 +9,22 @@
 import Foundation
 
 class WelcomeViewModel {
+    
+    var hasStartedAddServerWorkflow = false
+    var commenceAddServerWorkflow: (() -> Void)?
+    
     func addServerToClusterWasPressed() {
         
+        if hasStartedAddServerWorkflow {
+            return
+        }
+        if let startWorkflow = commenceAddServerWorkflow {
+            hasStartedAddServerWorkflow = true
+            startWorkflow()
+        }
+    }
+    
+    func didFinishAddServerWorkflow() {
+        hasStartedAddServerWorkflow = false
     }
 }
