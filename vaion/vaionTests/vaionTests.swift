@@ -16,6 +16,8 @@ struct TestData {
     // The documentation is incorrect in that it says the server is at
     // 192.168.1.11 but actually it is at 192.168.0.11
     static let requireCredentialsServer = "192.268.0.11"
+    static let unknownServer = "1.2.3.4"
+    static let networkServerShortestResponseTimeSeconds = 1.0
 }
 class vaionTests: XCTestCase {
 
@@ -115,6 +117,58 @@ class vaionTests: XCTestCase {
                 XCTFail("Did not go to the credentials screen")
             }
         }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testNextButtonWhenServerUnknown() {
+        let viewModel = AddServerViewModel()
+        var wentToSuccessScreen = false
+        var wentToCredentialsScreen = false
+        var postedAnError = false
+        
+        viewModel.gotoSuccessScreen = {
+            wentToSuccessScreen = true
+        }
+        viewModel.gotoServerCredentialsScreen = {
+            wentToCredentialsScreen = true
+        }
+        viewModel.reportError = { (error) in
+            postedAnError = true
+        }
+        
+        viewModel.ipAddressString(updatedWith: TestData.unknownServer)
+        
+        let expectation = XCTestExpectation(description: "Server unknown error expected")
+
+        viewModel.nextButtonWasPressed {
+            if postedAnError && !wentToSuccessScreen && !wentToCredentialsScreen {
+            expectation.fulfill()
+            } else {
+                XCTFail("Did not go to the error screen")
+            }
+        }
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testNextButtonSpinnerAppears() {
+        let viewModel = AddServerViewModel()
+
+        var showingSpinner = false
+        
+        let expectation = XCTestExpectation(description: "Spinner Shown")
+
+        viewModel.setSpinnerCallback = { (show) in
+            showingSpinner = show
+            if showingSpinner {
+                expectation.fulfill()
+            }
+        }
+        viewModel.delayTimeoutSecond = TestData.networkServerShortestResponseTimeSeconds / 10.0
+        
+        viewModel.ipAddressString(updatedWith: TestData.noCredentialsServer)
+        
+        viewModel.nextButtonWasPressed()
+        
         wait(for: [expectation], timeout: 10.0)
     }
 }
