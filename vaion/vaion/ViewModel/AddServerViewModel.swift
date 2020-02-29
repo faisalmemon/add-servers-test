@@ -41,7 +41,8 @@ class AddServerViewModel {
         }
     }
     
-    func handleServerResponse(_ response: NetworkingResponse) {
+    func handleServerResponse(_ response: NetworkingResponse, completionHandler: @escaping ()-> Void = {}) {
+        
         self.shouldShowSpinner = false
         self.hideSpinner()
         
@@ -62,6 +63,7 @@ class AddServerViewModel {
                 doErrorReport(NSLocalizedString("Server error", comment: ""))
             }
         }
+        completionHandler()
     }
     
     //MARK: - API
@@ -70,7 +72,7 @@ class AddServerViewModel {
         ipAddress = ipAddressString ?? ""
     }
     
-    func nextButtonWasPressed() {
+    func nextButtonWasPressed(completionHandler: @escaping ()-> Void = {}) {
         shouldShowSpinner = true
         DispatchQueue.main.asyncAfter(deadline: .now() + delayTimeoutSecond) {
             self.showSpinner()
@@ -78,7 +80,7 @@ class AddServerViewModel {
         DispatchQueue.global().async {
             Networking.sharedInstance.connectToServer(ipAddress: self.ipAddress, credentials: nil) { (response) in
                 DispatchQueue.main.async {
-                    self.handleServerResponse(response)
+                    self.handleServerResponse(response, completionHandler: completionHandler)
                 }
             }
         }
