@@ -27,6 +27,9 @@ class WelcomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func addServerToClusterAction(_ sender: Any) {
+        viewModel.addServerToClusterWasPressed()
+    }
+    
 }
 

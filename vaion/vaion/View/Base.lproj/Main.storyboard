@@ -28,6 +28,9 @@
                                         <rect key="frame" x="0.0" y="41" width="414" height="777"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Add Server to Cluster"/>
+                                        <connections>
+                                            <action selector="addServerToClusterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sTr-YO-c5T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
