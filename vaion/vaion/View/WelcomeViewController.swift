@@ -9,7 +9,19 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
+    var viewModel: WelcomeViewModel
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        viewModel = WelcomeViewModel()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        viewModel = WelcomeViewModel()
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -16,6 +16,7 @@
 		39217A5E240A7F2600ABC427 /* vaionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* vaionTests.swift */; };
 		39217A69240A7F2600ABC427 /* vaionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A68240A7F2600ABC427 /* vaionUITests.swift */; };
 		39217A7A240A996F00ABC427 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A79240A996F00ABC427 /* Networking.swift */; };
+		396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		39217A68240A7F2600ABC427 /* vaionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vaionUITests.swift; sourceTree = "<group>"; };
 		39217A6A240A7F2600ABC427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39217A79240A996F00ABC427 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		39217A78240A97E300ABC427 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39217A4B240A7F2200ABC427 /* WelcomeViewController.swift in Sources */,
+				396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */,
 				39217A47240A7F2200ABC427 /* AppDelegate.swift in Sources */,
 				39217A49240A7F2200ABC427 /* SceneDelegate.swift in Sources */,
 				39217A7A240A996F00ABC427 /* Networking.swift in Sources */,
