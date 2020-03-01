@@ -23,6 +23,8 @@ class AddServerViewController: UIViewController {
     }
 
     @IBOutlet weak var ipAddressTextFieldOutlet: UITextField!
+        
+    var spinner: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,10 @@ class AddServerViewController: UIViewController {
         
         viewModel.reportError = { (message) in
             self.reportError(message: message)
+        }
+        
+        viewModel.setSpinnerCallback = { (show) in
+            self.showSpinner(show)
         }
     }
     
@@ -68,6 +74,19 @@ class AddServerViewController: UIViewController {
                     self.viewModel.errorWasAcknowledged()
                 }
         })
+    }
+    
+    func showSpinner(_ show: Bool) {
+        if show {
+            spinner = UIActivityIndicatorView(style: .large)
+            self.view.addSubview(spinner!)
+            spinner?.center = self.view.center
+            spinner?.startAnimating()
+        } else {
+            spinner?.stopAnimating()
+            spinner?.removeFromSuperview()
+            spinner = nil
+        }
     }
     
     /*
