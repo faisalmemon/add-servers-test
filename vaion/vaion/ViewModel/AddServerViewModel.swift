@@ -19,8 +19,9 @@ class AddServerViewModel {
 
     //MARK: - State
     
-    var delayTimeoutSecond: TimeInterval = 5
+    var delayTimeoutSecond: TimeInterval = 1
     var shouldShowSpinner = false
+    var requestInProgress = false
     var ipAddress = ""
     let callback: AddServerProtocol
 
@@ -39,9 +40,9 @@ class AddServerViewModel {
     }
     
     func handleServerResponse(_ response: NetworkingResponse, completionHandler: @escaping ()-> Void = {}) {
-        
-        self.shouldShowSpinner = false
-        self.hideSpinner()
+        requestInProgress = false
+        shouldShowSpinner = false
+        hideSpinner()
         
         if response.success {
             callback.gotoSuccessScreen()
@@ -66,6 +67,10 @@ class AddServerViewModel {
     }
     
     func nextButtonWasPressed(completionHandler: @escaping ()-> Void = {}) {
+        if requestInProgress {
+            return
+        }
+        requestInProgress = true
         shouldShowSpinner = true
         DispatchQueue.main.asyncAfter(deadline: .now() + delayTimeoutSecond) {
             self.showSpinner()

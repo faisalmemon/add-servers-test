@@ -15,6 +15,7 @@ class AddServerMock: AddServerProtocol {
     var wentToReportError = false
     var showingSpinner = false
     var showedSpinnerAtLeastOnce = false
+    var numberOfTimesAtSuccessScreen = 0
     
     func gotoServerCredentialsScreen() {
         wentToCredentialsScreen = true
@@ -22,6 +23,7 @@ class AddServerMock: AddServerProtocol {
     
     func gotoSuccessScreen() {
         wentToSuccessScreen = true
+        numberOfTimesAtSuccessScreen += 1
     }
     
     func reportError(message: String) {
@@ -108,6 +110,16 @@ class VaionAddServerTests: XCTestCase {
         
         viewModel.nextButtonWasPressed() {
             XCTAssert(mock.showedSpinnerAtLeastOnce)
+        }
+    }
+    
+    func testNextButtonProcessedOnceOnlyWhenDoublePressed() {
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
+        viewModel.ipAddressString(updatedWith: TestData.noCredentialsServer)
+        viewModel.nextButtonWasPressed()
+        viewModel.nextButtonWasPressed() {
+            XCTAssert(mock.numberOfTimesAtSuccessScreen == 1)
         }
     }
 }
