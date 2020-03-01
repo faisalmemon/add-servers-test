@@ -11,10 +11,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var viewModel: AppDelegateViewModel!
+    
+    override init() {
+        super.init()
+        viewModel = AppDelegateViewModel(callbackHandler: self)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       
+        viewModel.didFinishLaunching()
+        
         return true
     }
 
@@ -33,5 +40,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate: AppDelegateProtocol {
+    
+    func disableHardwareKeyboardOnSimulator() {
+        #if targetEnvironment(simulator)
+        // Disable hardware keyboards.
+        let setHardwareLayout = NSSelectorFromString("setHardwareLayout:")
+        UITextInputMode.activeInputModes
+            // Filter `UIKeyboardInputMode`s.
+            .filter({ $0.responds(to: setHardwareLayout) })
+            .forEach { $0.perform(setHardwareLayout, with: nil) }
+        #endif
+    }
 }
 

@@ -8,6 +8,7 @@
 
 import XCTest
 
+/// Peform UI Testing.  Requires simulator to not have a connected hardware keyboard.  This is ensured by `AppDelegateViewModel::disableHardwareKeyboardOnSimulator`
 class vaionUITests: XCTestCase {
 
     override func setUp() {
@@ -37,6 +38,27 @@ class vaionUITests: XCTestCase {
         app.launch()
         XCUIApplication().buttons["Add Server to Cluster"].tap()
         
+    }
+    
+    func testAddCredentials() {
+        let app = XCUIApplication()
+        app.launch()
+        app.buttons["Add Server to Cluster"].tap()
+        
+        let textField = app.textFields["1.2.3.4"]
+        textField.tap()
+        textField.typeText("192.168.0.11")
+        app.staticTexts["Next"].tap()
+
+        let usernameField = app.textFields["User name"]
+        XCTAssert(usernameField.waitForExistence(timeout: 5))
+
+        usernameField.tap()
+        usernameField.typeText("vaion")
+        let mypasswordSecureTextField = app.secureTextFields["Password"]
+        mypasswordSecureTextField.tap()
+        mypasswordSecureTextField.typeText("password")
+        app.staticTexts["Next"].tap()
     }
 
 }

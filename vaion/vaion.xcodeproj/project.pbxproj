@@ -22,6 +22,7 @@
 		396F8060240AE3CA0018FC96 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805F240AE3CA0018FC96 /* Extensions.swift */; };
 		396F8062240BB8500018FC96 /* VaionAddServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8061240BB8500018FC96 /* VaionAddServerTests.swift */; };
 		396F8064240BBF1C0018FC96 /* VaionWelcomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */; };
+		396F8066240C0E780018FC96 /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8065240C0E780018FC96 /* AppDelegateViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		396F805F240AE3CA0018FC96 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		396F8061240BB8500018FC96 /* VaionAddServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionAddServerTests.swift; sourceTree = "<group>"; };
 		396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionWelcomeTests.swift; sourceTree = "<group>"; };
+		396F8065240C0E780018FC96 /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			children = (
 				396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */,
 				396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */,
+				396F8065240C0E780018FC96 /* AppDelegateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396F8066240C0E780018FC96 /* AppDelegateViewModel.swift in Sources */,
 				39217A4B240A7F2200ABC427 /* WelcomeViewController.swift in Sources */,
 				396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */,
 				39217A47240A7F2200ABC427 /* AppDelegate.swift in Sources */,
