@@ -38,6 +38,8 @@ class AddCredentialsViewController: UIViewController {
 
         usernameTextFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
         passwordTextFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
+        
+        assert(addServerViewModel != nil, "Segue to this controller should have setup the ServerViewModel")
     }
     
     @objc func textFieldDidChange(sender: Any) {
