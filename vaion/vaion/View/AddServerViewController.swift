@@ -50,6 +50,12 @@ class AddServerViewController: UIViewController {
      }
      */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addCredentialsViewController = segue.destination as? AddCredentialsViewController {
+            addCredentialsViewController.addServerViewModel = viewModel
+        }
+    }
+    
 }
 
 extension AddServerViewController: AddServerProtocol {

@@ -113,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="2123.1884057971015" y="142.63392857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Credentials View Controller-->
         <scene sceneID="riJ-AS-R47">
             <objects>
-                <viewController id="9cD-Ln-EuY" sceneMemberID="viewController">
+                <viewController id="9cD-Ln-EuY" customClass="AddCredentialsViewController" customModule="vaion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KMH-2H-n5Z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,6 +158,9 @@
                                         <rect key="frame" x="0.0" y="250" width="394" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextButtonAction:" destination="9cD-Ln-EuY" eventType="touchUpInside" id="mnl-pP-Iuz"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spacer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9h-VK-9ZT">
                                         <rect key="frame" x="0.0" y="312" width="394" height="430"/>
@@ -182,6 +185,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="auJ-Vm-xJN"/>
                     <connections>
+                        <outlet property="passwordTextFieldOutlet" destination="iSr-5F-pRS" id="Nc2-Gi-YWb"/>
+                        <outlet property="usernameTextFieldOutlet" destination="x83-gO-yJ7" id="J5F-Z9-19b"/>
                         <segue destination="cBc-pj-1SL" kind="show" identifier="toSuccessScreen" id="ClB-4y-FvZ"/>
                     </connections>
                 </viewController>
