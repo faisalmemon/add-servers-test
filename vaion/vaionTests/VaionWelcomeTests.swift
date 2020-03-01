@@ -17,7 +17,7 @@ class WelcomeMock: WelcomeProtocol {
     }
 }
 
-class vaionWelcomeTests: XCTestCase {
+class VaionWelcomeTests: XCTestCase {
     
     func testCommenceAddServerThenStop() {
         let mock = WelcomeMock()

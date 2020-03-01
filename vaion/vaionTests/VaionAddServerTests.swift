@@ -36,7 +36,7 @@ class AddServerMock: AddServerProtocol {
     }
 }
 
-class vaionAddServerTests: XCTestCase {
+class VaionAddServerTests: XCTestCase {
     
     func testSettingIpAddress() {
         let mock = AddServerMock()

@@ -13,15 +13,15 @@
 		39217A4E240A7F2200ABC427 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39217A4C240A7F2200ABC427 /* Main.storyboard */; };
 		39217A50240A7F2600ABC427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39217A4F240A7F2600ABC427 /* Assets.xcassets */; };
 		39217A53240A7F2600ABC427 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39217A51240A7F2600ABC427 /* LaunchScreen.storyboard */; };
-		39217A5E240A7F2600ABC427 /* vaionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* vaionTests.swift */; };
+		39217A5E240A7F2600ABC427 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* TestData.swift */; };
 		39217A69240A7F2600ABC427 /* vaionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A68240A7F2600ABC427 /* vaionUITests.swift */; };
 		39217A7A240A996F00ABC427 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A79240A996F00ABC427 /* Networking.swift */; };
 		396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */; };
 		396F805C240ABD170018FC96 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805B240ABD170018FC96 /* AddServerViewController.swift */; };
 		396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */; };
 		396F8060240AE3CA0018FC96 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805F240AE3CA0018FC96 /* Extensions.swift */; };
-		396F8062240BB8500018FC96 /* addServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8061240BB8500018FC96 /* addServerTests.swift */; };
-		396F8064240BBF1C0018FC96 /* welcomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8063240BBF1C0018FC96 /* welcomeTests.swift */; };
+		396F8062240BB8500018FC96 /* VaionAddServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8061240BB8500018FC96 /* VaionAddServerTests.swift */; };
+		396F8064240BBF1C0018FC96 /* VaionWelcomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +51,7 @@
 		39217A52240A7F2600ABC427 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39217A54240A7F2600ABC427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39217A59240A7F2600ABC427 /* vaionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vaionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		39217A5D240A7F2600ABC427 /* vaionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vaionTests.swift; sourceTree = "<group>"; };
+		39217A5D240A7F2600ABC427 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		39217A5F240A7F2600ABC427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39217A64240A7F2600ABC427 /* vaionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vaionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39217A68240A7F2600ABC427 /* vaionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vaionUITests.swift; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 		396F805B240ABD170018FC96 /* AddServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewController.swift; sourceTree = "<group>"; };
 		396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewModel.swift; sourceTree = "<group>"; };
 		396F805F240AE3CA0018FC96 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		396F8061240BB8500018FC96 /* addServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addServerTests.swift; sourceTree = "<group>"; };
-		396F8063240BBF1C0018FC96 /* welcomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeTests.swift; sourceTree = "<group>"; };
+		396F8061240BB8500018FC96 /* VaionAddServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionAddServerTests.swift; sourceTree = "<group>"; };
+		396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionWelcomeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,9 +124,9 @@
 		39217A5C240A7F2600ABC427 /* vaionTests */ = {
 			isa = PBXGroup;
 			children = (
-				39217A5D240A7F2600ABC427 /* vaionTests.swift */,
-				396F8063240BBF1C0018FC96 /* welcomeTests.swift */,
-				396F8061240BB8500018FC96 /* addServerTests.swift */,
+				39217A5D240A7F2600ABC427 /* TestData.swift */,
+				396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */,
+				396F8061240BB8500018FC96 /* VaionAddServerTests.swift */,
 				39217A5F240A7F2600ABC427 /* Info.plist */,
 			);
 			path = vaionTests;
@@ -319,9 +319,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				396F8064240BBF1C0018FC96 /* welcomeTests.swift in Sources */,
-				396F8062240BB8500018FC96 /* addServerTests.swift in Sources */,
-				39217A5E240A7F2600ABC427 /* vaionTests.swift in Sources */,
+				396F8064240BBF1C0018FC96 /* VaionWelcomeTests.swift in Sources */,
+				396F8062240BB8500018FC96 /* VaionAddServerTests.swift in Sources */,
+				39217A5E240A7F2600ABC427 /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
