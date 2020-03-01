@@ -19,6 +19,7 @@ struct TestData {
     static let unknownServer = "1.2.3.4"
     static let networkServerShortestResponseTimeSeconds = 1.0
 }
+
 class vaionTests: XCTestCase {
 
     override func setUp() {
@@ -55,120 +56,75 @@ class vaionTests: XCTestCase {
     }
     
     func testSettingIpAddress() {
-        let viewModel = AddServerViewModel()
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
         viewModel.ipAddress = "placeholder"
         viewModel.ipAddressString(updatedWith: "1.2.3.4")
         XCTAssert(viewModel.ipAddress == "1.2.3.4")
     }
     
     func testSettingAbsentIpAddressIsEmptyString() {
-        let viewModel = AddServerViewModel()
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
         viewModel.ipAddress = "placeholder"
         viewModel.ipAddressString(updatedWith: nil)
         XCTAssert(viewModel.ipAddress == "")
     }
     
     func testNextButtonWhenNoCredentialsRequired() {
-        let viewModel = AddServerViewModel()
-        var wentToSuccessScreen = false
-        var wentToCredentialsScreen = false
-        
-        viewModel.gotoSuccessScreen = {
-            wentToSuccessScreen = true
-        }
-        viewModel.gotoServerCredentialsScreen = {
-            wentToCredentialsScreen = true
-        }
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
         
         viewModel.ipAddressString(updatedWith: TestData.noCredentialsServer)
         
-        let expectation = XCTestExpectation(description: "Login without credentials")
-
         viewModel.nextButtonWasPressed {
-            if wentToSuccessScreen && !wentToCredentialsScreen {
-            expectation.fulfill()
+            if mock.wentToSuccessScreen && !mock.wentToCredentialsScreen {
+                // good path
             } else {
                 XCTFail("Did not go to the success screen")
             }
         }
-        wait(for: [expectation], timeout: 10.0)
     }
     
     func testNextButtonWhenCredentialsAreRequired() {
-        let viewModel = AddServerViewModel()
-        var wentToSuccessScreen = false
-        var wentToCredentialsScreen = false
-        
-        viewModel.gotoSuccessScreen = {
-            wentToSuccessScreen = true
-        }
-        viewModel.gotoServerCredentialsScreen = {
-            wentToCredentialsScreen = true
-        }
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
         
         viewModel.ipAddressString(updatedWith: TestData.requireCredentialsServer)
         
-        let expectation = XCTestExpectation(description: "Login with credentials")
-
         viewModel.nextButtonWasPressed {
-            if !wentToSuccessScreen && wentToCredentialsScreen {
-            expectation.fulfill()
+            if !mock.wentToSuccessScreen && mock.wentToCredentialsScreen {
+                // good path
             } else {
                 XCTFail("Did not go to the credentials screen")
             }
         }
-        wait(for: [expectation], timeout: 10.0)
     }
     
     func testNextButtonWhenServerUnknown() {
-        let viewModel = AddServerViewModel()
-        var wentToSuccessScreen = false
-        var wentToCredentialsScreen = false
-        var postedAnError = false
-        
-        viewModel.gotoSuccessScreen = {
-            wentToSuccessScreen = true
-        }
-        viewModel.gotoServerCredentialsScreen = {
-            wentToCredentialsScreen = true
-        }
-        viewModel.reportError = { (error) in
-            postedAnError = true
-        }
-        
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
         viewModel.ipAddressString(updatedWith: TestData.unknownServer)
         
-        let expectation = XCTestExpectation(description: "Server unknown error expected")
-
         viewModel.nextButtonWasPressed {
-            if postedAnError && !wentToSuccessScreen && !wentToCredentialsScreen {
-            expectation.fulfill()
+            if mock.wentToReportError && !mock.wentToSuccessScreen && !mock.wentToCredentialsScreen {
+                // good path
             } else {
                 XCTFail("Did not go to the error screen")
             }
         }
-        wait(for: [expectation], timeout: 10.0)
     }
     
     func testNextButtonSpinnerAppears() {
-        let viewModel = AddServerViewModel()
-
-        var showingSpinner = false
-        
-        let expectation = XCTestExpectation(description: "Spinner Shown")
-
-        viewModel.setSpinnerCallback = { (show) in
-            showingSpinner = show
-            if showingSpinner {
-                expectation.fulfill()
-            }
-        }
+        let mock = AddServerMock()
+        let viewModel = AddServerViewModel(callbackHandler: mock)
+                
         viewModel.delayTimeoutSecond = TestData.networkServerShortestResponseTimeSeconds / 10.0
         
         viewModel.ipAddressString(updatedWith: TestData.noCredentialsServer)
         
-        viewModel.nextButtonWasPressed()
-        
-        wait(for: [expectation], timeout: 10.0)
+        viewModel.nextButtonWasPressed() {
+            XCTAssert(mock.showedSpinnerAtLeastOnce)
+        }
     }
 }

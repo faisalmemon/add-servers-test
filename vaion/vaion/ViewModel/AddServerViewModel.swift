@@ -8,36 +8,33 @@
 
 import Foundation
 
+protocol AddServerProtocol {
+    func gotoServerCredentialsScreen()
+    func gotoSuccessScreen()
+    func reportError(message: String)
+    func spinner(show: Bool)
+}
+
 class AddServerViewModel {
-    
+
     //MARK: - State
     
     var delayTimeoutSecond: TimeInterval = 5
     var shouldShowSpinner = false
     var ipAddress = ""
-    
-    //MARK: - User Interface Callbacks
-
-    var gotoServerCredentialsScreen: (() -> Void)?
-    var gotoSuccessScreen: (() -> Void)?
-    var reportError: ((String) -> Void)?
-    var setSpinnerCallback:((Bool) -> Void)?
+    let callback: AddServerProtocol
 
     //MARK: - Internal Logic
     
     func showSpinner() {
         if shouldShowSpinner {
-            if let spinner = setSpinnerCallback {
-                spinner(true)
-            }
+            callback.spinner(show: true)
         }
     }
     
     func hideSpinner() {
         if !shouldShowSpinner {
-            if let spinner = setSpinnerCallback {
-                spinner(false)
-            }
+            callback.spinner(show: false)
         }
     }
     
@@ -47,26 +44,22 @@ class AddServerViewModel {
         self.hideSpinner()
         
         if response.success {
-            if let successScreen = self.gotoSuccessScreen {
-                successScreen()
-            }
+            callback.gotoSuccessScreen()
         } else if response.code == 401 {
-            if let credentialsScreen = self.gotoServerCredentialsScreen {
-                credentialsScreen()
-            }
+            callback.gotoServerCredentialsScreen()
         } else {
-            if let doErrorReport = self.reportError {
-                /*
-                 Don't leak details of error to user in case of a malicous user was attempting
-                 to crack the login.
-                 */
-                doErrorReport(NSLocalizedString("Server error", comment: ""))
-            }
+            // maybe hide the details of the error if it is a
+            // security concern
+            callback.reportError(message: response.message)
         }
         completionHandler()
     }
     
     //MARK: - API
+    
+    init(callbackHandler: AddServerProtocol) {
+        callback = callbackHandler
+    }
 
     func ipAddressString(updatedWith ipAddressString: String?) {
         ipAddress = ipAddressString ?? ""
