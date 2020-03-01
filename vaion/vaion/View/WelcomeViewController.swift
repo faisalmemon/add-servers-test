@@ -10,37 +10,30 @@ import UIKit
 
 class WelcomeViewController: UIViewController {
     
-    var viewModel: WelcomeViewModel
+    var viewModel: WelcomeViewModel!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        viewModel = WelcomeViewModel()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        viewModel = WelcomeViewModel(callbackHandler: self)
     }
     
     required init?(coder: NSCoder) {
-        viewModel = WelcomeViewModel()
         super.init(coder: coder)
+        viewModel = WelcomeViewModel(callbackHandler: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.commenceAddServerWorkflow = {
-            self.gotoAddServerScreen()
-        }
     }
 
     @IBAction func addServerToClusterAction(_ sender: Any) {
         viewModel.addServerToClusterWasPressed()
     }
-    
-    // MARK: Callback Handlers
-    
-    func gotoAddServerScreen() {
+}
+
+extension WelcomeViewController: WelcomeProtocol {
+    func commenceAddServerWorkflow() {
         performSegue(withIdentifier: "addServerSegue", sender: self)
     }
-    
-    
-    
-    
 }
 

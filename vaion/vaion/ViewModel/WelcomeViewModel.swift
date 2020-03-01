@@ -8,19 +8,25 @@
 
 import Foundation
 
+protocol WelcomeProtocol {
+    func commenceAddServerWorkflow()
+}
+
 class WelcomeViewModel {
     
+    let callback: WelcomeProtocol
     var hasStartedAddServerWorkflow = false
-    var commenceAddServerWorkflow: (() -> Void)?
+    
+    // MARK:- API
+    
+    init(callbackHandler: WelcomeProtocol) {
+           callback = callbackHandler
+       }
     
     func addServerToClusterWasPressed() {
-        
-        if hasStartedAddServerWorkflow {
-            return
-        }
-        if let startWorkflow = commenceAddServerWorkflow {
+        if !hasStartedAddServerWorkflow {
             hasStartedAddServerWorkflow = true
-            startWorkflow()
+            callback.commenceAddServerWorkflow()
         }
     }
     

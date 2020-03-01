@@ -19,39 +19,3 @@ struct TestData {
     static let unknownServer = "1.2.3.4"
     static let networkServerShortestResponseTimeSeconds = 1.0
 }
-
-class vaionTests: XCTestCase {
-
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testCommenceAddServerThenStop() {
-        var commenceCounter = 0
-        
-        let viewModel = WelcomeViewModel()
-        viewModel.commenceAddServerWorkflow = {
-            commenceCounter += 1
-        }
-        viewModel.addServerToClusterWasPressed()
-        XCTAssert(viewModel.hasStartedAddServerWorkflow && commenceCounter == 1)
-        viewModel.didFinishAddServerWorkflow()
-        XCTAssert(!viewModel.hasStartedAddServerWorkflow && commenceCounter == 1)
-    }
-    
-    func testCommenceAddServerDoesNotDoubleCommence() {
-        var commenceCounter = 0
-        
-        let viewModel = WelcomeViewModel()
-        viewModel.commenceAddServerWorkflow = {
-            commenceCounter += 1
-        }
-        viewModel.addServerToClusterWasPressed()
-        viewModel.addServerToClusterWasPressed()
-        XCTAssert(viewModel.hasStartedAddServerWorkflow && commenceCounter == 1)
-    }
-}
