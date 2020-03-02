@@ -11,6 +11,7 @@ import Foundation
 protocol SuccessProtocol {
     func getAddServerViewModel() -> AddServerViewModel
     func successLabel(updateWith text: String)
+    func goToWelcomeScreen()
 }
 
 class SuccessViewModel {
@@ -31,5 +32,9 @@ class SuccessViewModel {
 
         let string = String.localizedStringWithFormat(metaString, serverIpAddress)
         callback.successLabel(updateWith: string)
+    }
+    
+    func okButtonWasPressed() {
+        callback.goToWelcomeScreen()
     }
 }

@@ -16,6 +16,7 @@ class SuccessViewController: UIViewController {
     @IBOutlet weak var successDetailLabelOutlet: UILabel!
     
     @IBAction func okButtonWasPressedAction(_ sender: Any) {
+        viewModel.okButtonWasPressed()
     }
     
 
@@ -50,4 +51,9 @@ extension SuccessViewController: SuccessProtocol {
         successDetailLabelOutlet.text = text
     }
 
+    func goToWelcomeScreen() {
+        self.dismiss(animated: true) {
+            // TODO need to cancel the workflow
+        }
+    }
 }
