@@ -11,54 +11,70 @@ import XCTest
 /// Peform UI Testing.  Requires simulator to not have a connected hardware keyboard.  This is ensured by `AppDelegateViewModel::disableHardwareKeyboardOnSimulator`
 class vaionUITests: XCTestCase {
 
+    var app: XCUIApplication!
+    
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testTrivialProgramLaunch() {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func reachAddServerToCluster() {
+        app.buttons["Add Server to Cluster"].tap()
+    }
+    func reachNextScreen() {
+        app.staticTexts["Next"].tap()
 
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    func supplyServerAddress(_ address: String) {
+        let textField = app.textFields["1.2.3.4"]
+        textField.tap()
+        textField.typeText(address)
+    }
+    
+    func supplyUsername(_ username: String) {
+        let usernameField = app.textFields["User name"]
+        XCTAssert(usernameField.waitForExistence(timeout: 5))
+        usernameField.tap()
+        usernameField.typeText(username)
+    }
+    
+    func supplyPassword(_ password: String) {
+        let passwordField = app.secureTextFields["Password"]
+        XCTAssert(passwordField.waitForExistence(timeout: 5))
+        passwordField.tap()
+        passwordField.typeText(password)
     }
     
     func testAddServer() {
-        let app = XCUIApplication()
-        app.launch()
-        XCUIApplication().buttons["Add Server to Cluster"].tap()
-        
+        reachAddServerToCluster()
     }
     
     func testAddCredentials() {
-        let app = XCUIApplication()
-        app.launch()
-        app.buttons["Add Server to Cluster"].tap()
-        
-        let textField = app.textFields["1.2.3.4"]
-        textField.tap()
-        textField.typeText("192.168.0.11")
-        app.staticTexts["Next"].tap()
-
-        let usernameField = app.textFields["User name"]
-        XCTAssert(usernameField.waitForExistence(timeout: 5))
-
-        usernameField.tap()
-        usernameField.typeText("vaion")
-        let mypasswordSecureTextField = app.secureTextFields["Password"]
-        mypasswordSecureTextField.tap()
-        mypasswordSecureTextField.typeText("password")
-        app.staticTexts["Next"].tap()
+        reachAddServerToCluster()
+        supplyServerAddress(TestData.requireCredentialsServer)
+        reachNextScreen()
+        supplyUsername(TestData.correctUsername)
+        supplyPassword(TestData.correctPassword)
+        reachNextScreen()
+    }
+    
+    func testAddServerWithoutCredentials() {
+        reachAddServerToCluster()
+        supplyServerAddress(TestData.noCredentialsServer)
+        reachNextScreen()
+        // TODO check that the success server ip address is correct when
+        // implemented
+        let successTitle = app.staticTexts["Success"]
+        XCTAssert(successTitle.waitForExistence(timeout: 5))
     }
 
 }

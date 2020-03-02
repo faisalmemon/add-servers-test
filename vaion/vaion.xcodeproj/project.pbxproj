@@ -16,6 +16,7 @@
 		39217A5E240A7F2600ABC427 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* TestData.swift */; };
 		39217A69240A7F2600ABC427 /* vaionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A68240A7F2600ABC427 /* vaionUITests.swift */; };
 		39217A7A240A996F00ABC427 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A79240A996F00ABC427 /* Networking.swift */; };
+		39276219240D0BC300F0ED3F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* TestData.swift */; };
 		396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */; };
 		396F805C240ABD170018FC96 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805B240ABD170018FC96 /* AddServerViewController.swift */; };
 		396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */; };
@@ -346,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39217A69240A7F2600ABC427 /* vaionUITests.swift in Sources */,
+				39276219240D0BC300F0ED3F /* TestData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
