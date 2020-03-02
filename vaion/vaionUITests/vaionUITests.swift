@@ -14,11 +14,7 @@ class vaionUITests: XCTestCase {
     var app: XCUIApplication!
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
         app = XCUIApplication()
         app.launch()
     }
@@ -30,10 +26,19 @@ class vaionUITests: XCTestCase {
     func reachAddServerToCluster() {
         app.buttons["Add Server to Cluster"].tap()
     }
+    
     func reachNextScreen() {
-        app.staticTexts["Next"].tap()
-
+        let nextButton = app.staticTexts["Next"]
+        XCTAssert(nextButton.waitForExistence(timeout: 5))
+        nextButton.tap()
     }
+    
+    func reachCredentialsForm() {
+        reachAddServerToCluster()
+        supplyServerAddress(TestData.requireCredentialsServer)
+        reachNextScreen()
+    }
+    
     func supplyServerAddress(_ address: String) {
         let textField = app.textFields["1.2.3.4"]
         textField.tap()
@@ -54,27 +59,56 @@ class vaionUITests: XCTestCase {
         passwordField.typeText(password)
     }
     
+    func verifySuccessScreen(forIpAddress ipAddress: String) {
+        // TODO check that the success server ip address is correct when
+        // implemented
+        let successTitle = app.staticTexts["Success"]
+        XCTAssert(successTitle.waitForExistence(timeout: 5))
+    }
+    
+    func verifyErrorScreenReached() {
+        let alertTitle = app.staticTexts["Server Error"]
+        XCTAssert(alertTitle.waitForExistence(timeout: 5))
+    }
+    
     func testAddServer() {
         reachAddServerToCluster()
     }
     
     func testAddCredentials() {
-        reachAddServerToCluster()
-        supplyServerAddress(TestData.requireCredentialsServer)
-        reachNextScreen()
+        reachCredentialsForm()
         supplyUsername(TestData.correctUsername)
         supplyPassword(TestData.correctPassword)
         reachNextScreen()
+        verifySuccessScreen(forIpAddress: TestData.requireCredentialsServer)
     }
     
     func testAddServerWithoutCredentials() {
         reachAddServerToCluster()
         supplyServerAddress(TestData.noCredentialsServer)
         reachNextScreen()
-        // TODO check that the success server ip address is correct when
-        // implemented
-        let successTitle = app.staticTexts["Success"]
-        XCTAssert(successTitle.waitForExistence(timeout: 5))
+        verifySuccessScreen(forIpAddress: TestData.noCredentialsServer)
     }
 
+    func testAddCredentialsWithBadUserName() {
+        reachCredentialsForm()
+        supplyUsername(TestData.unknownUser)
+        supplyPassword(TestData.correctPassword)
+        reachNextScreen()
+        verifyErrorScreenReached()
+    }
+    
+    func testAddCredentialsWithBadPassword() {
+        reachCredentialsForm()
+        supplyUsername(TestData.correctUsername)
+        supplyPassword(TestData.badPassword)
+        reachNextScreen()
+        verifyErrorScreenReached()
+    }
+    
+    func testAddCredentialsWithNoCredentialsSupplied() {
+        reachCredentialsForm()
+        reachNextScreen()
+        verifyErrorScreenReached()
+    }
 }
