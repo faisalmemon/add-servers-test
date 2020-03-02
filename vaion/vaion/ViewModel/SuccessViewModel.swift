@@ -10,8 +10,9 @@ import Foundation
 
 protocol SuccessProtocol {
     func getAddServerViewModel() -> AddServerViewModel
+    func getWelcomeViewModel() -> WelcomeViewModel
     func successLabel(updateWith text: String)
-    func goToWelcomeScreen()
+    func performDismiss()
 }
 
 class SuccessViewModel {
@@ -35,6 +36,10 @@ class SuccessViewModel {
     }
     
     func okButtonWasPressed() {
-        callback.goToWelcomeScreen()
+        callback.performDismiss()
+    }
+    
+    func wasDismissed() {
+        callback.getWelcomeViewModel().didFinishAddServerWorkflow()
     }
 }

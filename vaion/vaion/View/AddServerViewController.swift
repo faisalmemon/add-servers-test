@@ -11,6 +11,7 @@ import UIKit
 class AddServerViewController: UIViewController {
     
     var viewModel: AddServerViewModel!
+    var welcomeViewModel: WelcomeViewModel!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -28,8 +29,8 @@ class AddServerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ipAddressTextFieldOutlet.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        assert(welcomeViewModel != nil, "Segue to this controller should have setup the ServerViewModel")
     }
     
     @objc func textFieldDidChange() {
@@ -43,9 +44,11 @@ class AddServerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addCredentialsViewController = segue.destination as? AddCredentialsViewController {
             addCredentialsViewController.addServerViewModel = viewModel
+            addCredentialsViewController.welcomeViewModel = welcomeViewModel
         }
         if let successViewController = segue.destination as? SuccessViewController {
             successViewController.addServerViewModel = viewModel
+            successViewController.welcomeViewModel = welcomeViewModel
         }
     }
     

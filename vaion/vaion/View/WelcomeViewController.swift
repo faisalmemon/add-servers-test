@@ -29,6 +29,14 @@ class WelcomeViewController: UIViewController {
     @IBAction func addServerToClusterAction(_ sender: Any) {
         viewModel.addServerToClusterWasPressed()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navController = segue.destination as? UINavigationController {
+            if let addServerViewController = navController.children.first as? AddServerViewController {
+                addServerViewController.welcomeViewModel = viewModel
+            }
+        }
+    }
 }
 
 extension WelcomeViewController: WelcomeProtocol {

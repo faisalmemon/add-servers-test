@@ -12,6 +12,7 @@ class SuccessViewController: UIViewController {
     
     var viewModel: SuccessViewModel!
     var addServerViewModel: AddServerViewModel!
+    var welcomeViewModel: WelcomeViewModel!
     
     @IBOutlet weak var successDetailLabelOutlet: UILabel!
     
@@ -34,6 +35,7 @@ class SuccessViewController: UIViewController {
         super.viewDidLoad()
 
         assert(addServerViewModel != nil, "Segue to this controller should have setup the ServerViewModel")
+        assert(welcomeViewModel != nil, "Segue to this controller should have setup the WelcomeViewModel")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,9 +53,14 @@ extension SuccessViewController: SuccessProtocol {
         successDetailLabelOutlet.text = text
     }
 
-    func goToWelcomeScreen() {
+    func performDismiss() {
         self.dismiss(animated: true) {
-            // TODO need to cancel the workflow
+            self.viewModel.wasDismissed()
         }
     }
+    
+    func getWelcomeViewModel() -> WelcomeViewModel {
+        return welcomeViewModel
+    }
+
 }

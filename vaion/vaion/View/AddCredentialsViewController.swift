@@ -12,6 +12,7 @@ class AddCredentialsViewController: UIViewController {
     
     var viewModel: AddCredentialsViewModel!
     var addServerViewModel: AddServerViewModel!
+    var welcomeViewModel: WelcomeViewModel!
     
     var spinner: UIActivityIndicatorView?
 
@@ -40,6 +41,7 @@ class AddCredentialsViewController: UIViewController {
         passwordTextFieldOutlet.addTarget(self, action: #selector(textFieldDidChange(sender:)), for: .editingChanged)
         
         assert(addServerViewModel != nil, "Segue to this controller should have setup the ServerViewModel")
+        assert(welcomeViewModel != nil, "Segue to this controller should have setup the ServerViewModel")
     }
     
     @objc func textFieldDidChange(sender: Any) {
@@ -59,6 +61,7 @@ class AddCredentialsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let successViewController = segue.destination as? SuccessViewController {
             successViewController.addServerViewModel = addServerViewModel
+            successViewController.welcomeViewModel = welcomeViewModel
         }
     }
 

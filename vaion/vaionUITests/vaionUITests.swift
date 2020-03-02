@@ -39,10 +39,37 @@ class vaionUITests: XCTestCase {
         reachNextScreen()
     }
     
+    func reachSuccessScreenUsingNoCredentialsServer() {
+        reachAddServerToCluster()
+        supplyServerAddress(TestData.noCredentialsServer)
+        reachNextScreen()
+        verifySuccessScreen(forIpAddress: TestData.noCredentialsServer)
+    }
+    
+    func reachSuccessScreenUsingCredentialsServer() {
+        reachCredentialsForm()
+        supplyUsername(TestData.correctUsername)
+        supplyPassword(TestData.correctPassword)
+        reachNextScreen()
+        verifySuccessScreen(forIpAddress: TestData.requireCredentialsServer)
+    }
+    
     func supplyServerAddress(_ address: String) {
         let textField = app.textFields["1.2.3.4"]
         textField.tap()
         textField.typeText(address)
+    }
+    
+    func tapUsernameField() {
+        let usernameField = app.textFields["User name"]
+        XCTAssert(usernameField.waitForExistence(timeout: 5))
+        usernameField.tap()
+    }
+    
+    func pressOK() {
+        let okButton = app.buttons["OK"]
+        XCTAssert(okButton.waitForExistence(timeout: 5))
+        okButton.tap()
     }
     
     func supplyUsername(_ username: String) {
@@ -89,18 +116,11 @@ class vaionUITests: XCTestCase {
     }
     
     func testAddCredentials() {
-        reachCredentialsForm()
-        supplyUsername(TestData.correctUsername)
-        supplyPassword(TestData.correctPassword)
-        reachNextScreen()
-        verifySuccessScreen(forIpAddress: TestData.requireCredentialsServer)
+        reachSuccessScreenUsingCredentialsServer()
     }
     
     func testAddServerWithoutCredentials() {
-        reachAddServerToCluster()
-        supplyServerAddress(TestData.noCredentialsServer)
-        reachNextScreen()
-        verifySuccessScreen(forIpAddress: TestData.noCredentialsServer)
+        reachSuccessScreenUsingNoCredentialsServer()
     }
 
     func testAddCredentialsWithBadUserName() {
@@ -121,7 +141,20 @@ class vaionUITests: XCTestCase {
     
     func testAddCredentialsWithNoCredentialsSupplied() {
         reachCredentialsForm()
+        tapUsernameField()
         reachNextScreen()
         verifyErrorScreenReached()
+    }
+    
+    func testCompleteEntireWorkflowWithoutCredentials() {
+        reachSuccessScreenUsingNoCredentialsServer()
+        pressOK()
+    }
+    
+    func testDoingTwoEntireWorkflowsCredentialsAndWithoutCredentials() {
+        reachSuccessScreenUsingNoCredentialsServer()
+        pressOK()
+        reachSuccessScreenUsingCredentialsServer()
+        pressOK()
     }
 }
