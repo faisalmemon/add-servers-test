@@ -44,7 +44,11 @@ class AddServerViewController: UIViewController {
         if let addCredentialsViewController = segue.destination as? AddCredentialsViewController {
             addCredentialsViewController.addServerViewModel = viewModel
         }
+        if let successViewController = segue.destination as? SuccessViewController {
+            successViewController.addServerViewModel = viewModel
+        }
     }
+    
     
 }
 

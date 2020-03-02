@@ -59,11 +59,24 @@ class vaionUITests: XCTestCase {
         passwordField.typeText(password)
     }
     
+    func waitElement(element: Any, timeout: TimeInterval = 5.0) {
+        let exists = NSPredicate(format: "exists == 1")
+
+        expectation(for: exists, evaluatedWith: element, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
+    }
+
+    func waitMessage(message: String) {
+        let predicate = NSPredicate(format: "label CONTAINS[c] %@", message)
+        let result = app.staticTexts.containing(predicate)
+        let element = XCUIApplication().staticTexts[result.element.label]
+        waitElement(element: element)
+    }
+    
     func verifySuccessScreen(forIpAddress ipAddress: String) {
-        // TODO check that the success server ip address is correct when
-        // implemented
         let successTitle = app.staticTexts["Success"]
         XCTAssert(successTitle.waitForExistence(timeout: 5))
+        waitMessage(message: ipAddress)
     }
     
     func verifyErrorScreenReached() {

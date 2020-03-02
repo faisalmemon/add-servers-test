@@ -18,6 +18,8 @@
 		39217A7A240A996F00ABC427 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A79240A996F00ABC427 /* Networking.swift */; };
 		39276219240D0BC300F0ED3F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* TestData.swift */; };
 		3927621B240D1C4800F0ED3F /* VaionAppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927621A240D1C4800F0ED3F /* VaionAppDelegateTests.swift */; };
+		3927621D240D236500F0ED3F /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927621C240D236500F0ED3F /* SuccessViewController.swift */; };
+		3927621F240D23B200F0ED3F /* SuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927621E240D23B200F0ED3F /* SuccessViewModel.swift */; };
 		396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */; };
 		396F805C240ABD170018FC96 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805B240ABD170018FC96 /* AddServerViewController.swift */; };
 		396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */; };
@@ -64,6 +66,8 @@
 		39217A6A240A7F2600ABC427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39217A79240A996F00ABC427 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		3927621A240D1C4800F0ED3F /* VaionAppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionAppDelegateTests.swift; sourceTree = "<group>"; };
+		3927621C240D236500F0ED3F /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
+		3927621E240D23B200F0ED3F /* SuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewModel.swift; sourceTree = "<group>"; };
 		396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		396F805B240ABD170018FC96 /* AddServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewController.swift; sourceTree = "<group>"; };
 		396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewModel.swift; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 				39217A4C240A7F2200ABC427 /* Main.storyboard */,
 				396F805B240ABD170018FC96 /* AddServerViewController.swift */,
 				396F8067240C12A60018FC96 /* AddCredentialsViewController.swift */,
+				3927621C240D236500F0ED3F /* SuccessViewController.swift */,
 				39217A4F240A7F2600ABC427 /* Assets.xcassets */,
 				39217A51240A7F2600ABC427 /* LaunchScreen.storyboard */,
 				39217A46240A7F2200ABC427 /* AppDelegate.swift */,
@@ -184,6 +189,7 @@
 				396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */,
 				396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */,
 				396F8069240C13210018FC96 /* AddCredentialsViewModel.swift */,
+				3927621E240D23B200F0ED3F /* SuccessViewModel.swift */,
 				396F8065240C0E780018FC96 /* AppDelegateViewModel.swift */,
 			);
 			path = ViewModel;
@@ -330,6 +336,8 @@
 				39217A49240A7F2200ABC427 /* SceneDelegate.swift in Sources */,
 				396F8068240C12A60018FC96 /* AddCredentialsViewController.swift in Sources */,
 				39217A7A240A996F00ABC427 /* Networking.swift in Sources */,
+				3927621F240D23B200F0ED3F /* SuccessViewModel.swift in Sources */,
+				3927621D240D236500F0ED3F /* SuccessViewController.swift in Sources */,
 				396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
