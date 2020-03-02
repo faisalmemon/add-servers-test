@@ -25,6 +25,7 @@
 		396F8066240C0E780018FC96 /* AppDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8065240C0E780018FC96 /* AppDelegateViewModel.swift */; };
 		396F8068240C12A60018FC96 /* AddCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8067240C12A60018FC96 /* AddCredentialsViewController.swift */; };
 		396F806A240C13210018FC96 /* AddCredentialsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8069240C13210018FC96 /* AddCredentialsViewModel.swift */; };
+		396F806C240C22410018FC96 /* VaionAddCredentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F806B240C22410018FC96 /* VaionAddCredentialsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		396F8065240C0E780018FC96 /* AppDelegateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateViewModel.swift; sourceTree = "<group>"; };
 		396F8067240C12A60018FC96 /* AddCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCredentialsViewController.swift; sourceTree = "<group>"; };
 		396F8069240C13210018FC96 /* AddCredentialsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCredentialsViewModel.swift; sourceTree = "<group>"; };
+		396F806B240C22410018FC96 /* VaionAddCredentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionAddCredentialsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				39217A5D240A7F2600ABC427 /* TestData.swift */,
 				396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */,
 				396F8061240BB8500018FC96 /* VaionAddServerTests.swift */,
+				396F806B240C22410018FC96 /* VaionAddCredentialsTests.swift */,
 				39217A5F240A7F2600ABC427 /* Info.plist */,
 			);
 			path = vaionTests;
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396F806C240C22410018FC96 /* VaionAddCredentialsTests.swift in Sources */,
 				396F8064240BBF1C0018FC96 /* VaionWelcomeTests.swift in Sources */,
 				396F8062240BB8500018FC96 /* VaionAddServerTests.swift in Sources */,
 				39217A5E240A7F2600ABC427 /* TestData.swift in Sources */,

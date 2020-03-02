@@ -20,4 +20,8 @@ struct TestData {
     static let requireCredentialsServer = "192.168.0.11"
     static let unknownServer = "1.2.3.4"
     static let networkServerShortestResponseTimeSeconds = 1.0
+    static let unknownUser = "unknownUser"
+    static let badPassword = "badPassword"
+    static let correctUsername = "vaion"
+    static let correctPassword = "password"
 }
