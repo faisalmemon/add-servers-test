@@ -44,15 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: AppDelegateProtocol {
     
-    func disableHardwareKeyboardOnSimulator() {
-        #if targetEnvironment(simulator)
-        // Disable hardware keyboards.
-        let setHardwareLayout = NSSelectorFromString("setHardwareLayout:")
-        UITextInputMode.activeInputModes
-            // Filter `UIKeyboardInputMode`s.
-            .filter({ $0.responds(to: setHardwareLayout) })
-            .forEach { $0.perform(setHardwareLayout, with: nil) }
-        #endif
+    func getActiveInputModes() -> [UITextInputMode] {
+        return UITextInputMode.activeInputModes
     }
 }
 

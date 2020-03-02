@@ -17,6 +17,7 @@
 		39217A69240A7F2600ABC427 /* vaionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A68240A7F2600ABC427 /* vaionUITests.swift */; };
 		39217A7A240A996F00ABC427 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A79240A996F00ABC427 /* Networking.swift */; };
 		39276219240D0BC300F0ED3F /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39217A5D240A7F2600ABC427 /* TestData.swift */; };
+		3927621B240D1C4800F0ED3F /* VaionAppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3927621A240D1C4800F0ED3F /* VaionAppDelegateTests.swift */; };
 		396F805A240AAAAB0018FC96 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */; };
 		396F805C240ABD170018FC96 /* AddServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805B240ABD170018FC96 /* AddServerViewController.swift */; };
 		396F805E240ABE0D0018FC96 /* AddServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */; };
@@ -62,6 +63,7 @@
 		39217A68240A7F2600ABC427 /* vaionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vaionUITests.swift; sourceTree = "<group>"; };
 		39217A6A240A7F2600ABC427 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39217A79240A996F00ABC427 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		3927621A240D1C4800F0ED3F /* VaionAppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaionAppDelegateTests.swift; sourceTree = "<group>"; };
 		396F8059240AAAAB0018FC96 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		396F805B240ABD170018FC96 /* AddServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewController.swift; sourceTree = "<group>"; };
 		396F805D240ABE0D0018FC96 /* AddServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				39217A5D240A7F2600ABC427 /* TestData.swift */,
 				396F8063240BBF1C0018FC96 /* VaionWelcomeTests.swift */,
 				396F8061240BB8500018FC96 /* VaionAddServerTests.swift */,
+				3927621A240D1C4800F0ED3F /* VaionAppDelegateTests.swift */,
 				396F806B240C22410018FC96 /* VaionAddCredentialsTests.swift */,
 				39217A5F240A7F2600ABC427 /* Info.plist */,
 			);
@@ -335,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3927621B240D1C4800F0ED3F /* VaionAppDelegateTests.swift in Sources */,
 				396F806C240C22410018FC96 /* VaionAddCredentialsTests.swift in Sources */,
 				396F8064240BBF1C0018FC96 /* VaionWelcomeTests.swift in Sources */,
 				396F8062240BB8500018FC96 /* VaionAddServerTests.swift in Sources */,

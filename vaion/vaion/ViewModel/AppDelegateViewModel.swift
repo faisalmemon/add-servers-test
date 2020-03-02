@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AppDelegateProtocol {
-    func disableHardwareKeyboardOnSimulator()
+    func getActiveInputModes() -> [UITextInputMode]
 }
 
 class AppDelegateViewModel {
@@ -25,6 +26,11 @@ class AppDelegateViewModel {
          Allow UI Testing we requires a software keyboard to allow interaction with
          certain TextFields.  Otherwise we'd get an element focus failure.
          */
-        callback.disableHardwareKeyboardOnSimulator()
+        #if targetEnvironment(simulator)
+        let setHardwareLayout = NSSelectorFromString("setHardwareLayout:")  // private method but not used in production hardware environments
+        callback.getActiveInputModes()
+        .filter({ $0.responds(to: setHardwareLayout) })
+        .forEach { $0.perform(setHardwareLayout, with: nil) }
+        #endif
     }
 }
