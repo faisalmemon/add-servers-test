@@ -16,6 +16,9 @@ protocol AddCredentialsProtocol {
 }
 
 class AddCredentialsViewModel {
+    
+    // MARK: - State
+    
     let callback: AddCredentialsProtocol
     
     var username = ""

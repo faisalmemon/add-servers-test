@@ -14,6 +14,8 @@ protocol WelcomeProtocol {
 
 class WelcomeViewModel {
     
+    // MARK: - State
+    
     let callback: WelcomeProtocol
     var hasStartedAddServerWorkflow = false
     

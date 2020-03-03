@@ -15,7 +15,11 @@ protocol AppDelegateProtocol {
 
 class AppDelegateViewModel {
     
+    // MARK: - State
+    
     let callback: AppDelegateProtocol
+    
+    // MARK: - API
     
     init(callbackHandler: AppDelegateProtocol) {
         callback = callbackHandler

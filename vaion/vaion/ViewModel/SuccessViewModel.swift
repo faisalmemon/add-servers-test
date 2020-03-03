@@ -16,9 +16,12 @@ protocol SuccessProtocol {
 }
 
 class SuccessViewModel {
+    
+    // MARK:- State
+    
     let callback: SuccessProtocol
     
-    //MARK: - API
+    // MARK: - API
     
     init(callbackHandler: SuccessProtocol) {
         callback = callbackHandler

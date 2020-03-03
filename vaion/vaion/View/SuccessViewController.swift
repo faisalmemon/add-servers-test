@@ -20,7 +20,6 @@ class SuccessViewController: UIViewController {
         viewModel.okButtonWasPressed()
     }
     
-
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         viewModel = SuccessViewModel(callbackHandler: self)
