@@ -26,4 +26,10 @@ To automatically exercise the UI and run tests, use `Command+U`.  Otherwise to r
 
 ## Test Coverage
 
-The Networking.swift code wasn't unit tested as it is assumed that the rest of the class will be explored during a later session.  The remaining aspects of the code has Unit and User Interface tesing in place.
+The `Networking.swift` code wasn't unit tested as it is assumed that the rest of the class will be explored during a later session.  The remaining aspects of the code has Unit and User Interface testing in place.
+
+## Design
+
+This app was coded as if it were part of a substantial app even though the functionality it offers is limited and thus could be achieved with a simple use of view controllers.  That is because the project asks for how it would be constructed as a production quality implementation.  The architecture used is MVVM.
+
+The user interface is somewhat plain, and slightly jerky at the end when it informs you of the connected server.  It would be straightforward to add polish to that using animations, etc., but this is outside the scope of the requirements.
