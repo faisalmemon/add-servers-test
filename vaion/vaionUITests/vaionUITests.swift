@@ -122,6 +122,14 @@ class vaionUITests: XCTestCase {
     func testAddServerWithoutCredentials() {
         reachSuccessScreenUsingNoCredentialsServer()
     }
+    
+    func testAddUnknownServer() {
+        reachAddServerToCluster()
+        supplyServerAddress(TestData.unknownServer)
+        reachNextScreen()
+        verifyErrorScreenReached()
+
+    }
 
     func testAddCredentialsWithBadUserName() {
         reachCredentialsForm()
