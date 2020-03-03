@@ -24,6 +24,12 @@ In order to run the code, first change the code signing to be your own team. Cli
 
 To automatically exercise the UI and run tests, use `Command+U`.  Otherwise to run interactively, use `Command+R`
 
+## Demo Video
+
+A video showing the app running on simulator is available from the following link.  It also shows the code signing section of Xcode (referenced above in the Running section).
+
+[demo-video-2020-03-03.mp4](https://drive.google.com/file/d/1eupxZ-wq_OKXBh3fDWwIhHzrl92tF8PJ/view?usp=sharing)
+
 ## Test Coverage
 
 The `Networking.swift` code wasn't unit tested as it is assumed that the rest of the class will be explored during a later session.  The remaining aspects of the code has Unit and User Interface testing in place.
